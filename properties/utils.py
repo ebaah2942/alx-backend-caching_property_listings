@@ -7,7 +7,7 @@ def get_all_properties():
 
     if not properties:
         # Fetch from DB if not in cache
-        properties = list(Property.objects.values())
+        properties = Property.objects.all()
         # Store in Redis for 1 hour (3600 seconds)
         cache.set("all_properties", properties, 3600)
 
